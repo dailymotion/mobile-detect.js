@@ -7,7 +7,7 @@ define(function () {
 
     var mobileDetectRules = {
     "phones": {
-        "iPhone": "\\biPhone.*(Mobile|PhoneGap)|\\biPod",
+        "iPhone": "\\biPhone.*|\\biPod",
         "BlackBerry": "BlackBerry|\\bBB10\\b|rim[0-9]+",
         "HTC": "HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6400L|ADR6425|001HT|Inspire 4G|Android.*\\bEVO\\b|T-Mobile G1|Z520m",
         "Nexus": "Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile",
@@ -24,35 +24,38 @@ define(function () {
         "Fly": "IQ230|IQ444|IQ450|IQ440|IQ442|IQ441|IQ245|IQ256|IQ236|IQ255|IQ235|IQ245|IQ275|IQ240|IQ285|IQ280|IQ270|IQ260|IQ250",
         "iMobile": "i-mobile (IQ|i-STYLE|idea|ZAA|Hitz)",
         "SimValley": "\\b(SP-80|XT-930|SX-340|XT-930|SX-310|SP-360|SP60|SPT-800|SP-120|SPT-800|SP-140|SPX-5|SPX-8|SP-100|SPX-8|SPX-12)\\b",
+        "Alcatel": "Alcatel",
+        "Amoi": "Amoi",
+        "INQ": "INQ",
         "GenericPhone": "Tapatalk|PDA;|SAGEM|\\bmmp\\b|pocket|\\bpsp\\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\\bwap\\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser"
     },
     "tablets": {
         "iPad": "iPad|iPad.*Mobile",
         "NexusTablet": "Android.*Nexus[\\s]+(7|10)|^.*Android.*Nexus(?:(?!Mobile).)*$",
-        "SamsungTablet": "SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5105|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925|GT-I9200|GT-I9205|GT-P5200|GT-P5210|GT-P5210X|SM-T311|SM-T310|SM-T310X|SM-T210|SM-T210R|SM-T211|SM-P600|SM-P601|SM-P605|SM-P900|SM-P901|SM-T217|SM-T217A|SM-T217S|SM-P6000|SM-T3100|SGH-I467|XE500|SM-T110|GT-P5220|GT-I9200X|GT-N5110X|GT-N5120|SM-P905|SM-T111|SM-T2105|SM-T315|SM-T320|SM-T320X|SM-T321|SM-T520|SM-T525|SM-T530NU|SM-T230NU|SM-T330NU|SM-T900|XE500T1C|SM-P605V|SM-P905V|SM-P600X|SM-P900X|SM-T210X|SM-T230|SM-T230X|SM-T325|GT-P7503|SM-T531|SM-T330|SM-T530|SM-T705C|SM-T535|SM-T331",
+        "SamsungTablet": "SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5105|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925|GT-I9200|GT-I9205|GT-P5200|GT-P5210|GT-P5210X|SM-T311|SM-T310|SM-T310X|SM-T210|SM-T210R|SM-T211|SM-P600|SM-P601|SM-P605|SM-P900|SM-P901|SM-T217|SM-T217A|SM-T217S|SM-P6000|SM-T3100|SGH-I467|XE500|SM-T110|GT-P5220|GT-I9200X|GT-N5110X|GT-N5120|SM-P905|SM-T111|SM-T2105|SM-T315|SM-T320|SM-T320X|SM-T321|SM-T520|SM-T525|SM-T530NU|SM-T230NU|SM-T330NU|SM-T900|XE500T1C|SM-P605V|SM-P905V|SM-P600X|SM-P900X|SM-T210X|SM-T230|SM-T230X|SM-T325|GT-P7503|SM-T531|SM-T330|SM-T530|SM-T705C|SM-T535|SM-T331|SM-T800",
         "Kindle": "Kindle|Silk.*Accelerated|Android.*\\b(KFOT|KFTT|KFJWI|KFJWA|KFOTE|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|WFJWAE)\\b",
         "SurfaceTablet": "Windows NT [0-9.]+; ARM;",
-        "HPTablet": "HP Slate 7|HP ElitePad 900|hp-tablet|EliteBook.*Touch|HP 8",
+        "HPTablet": "HP Slate (7|8|10)|HP ElitePad 900|hp-tablet|EliteBook.*Touch|HP 8|Slate 21|HP SlateBook 10",
         "AsusTablet": "^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101|\\bK00F\\b|TX201LA",
         "BlackBerryTablet": "PlayBook|RIM Tablet",
         "HTCtablet": "HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200",
         "MotorolaTablet": "xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617",
         "NookTablet": "Android.*Nook|NookColor|nook browser|BNRV200|BNRV200A|BNTV250|BNTV250A|BNTV400|BNTV600|LogicPD Zoom2",
-        "AcerTablet": "Android.*; \\b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71|B1-710|B1-711|A1-810|A1-830)\\b|W3-810|\\bA3-A10\\b",
+        "AcerTablet": "Android.*; \\b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71|B1-710|B1-711|A1-810|A1-811|A1-830)\\b|W3-810|\\bA3-A10\\b",
         "ToshibaTablet": "Android.*(AT100|AT105|AT200|AT205|AT270|AT275|AT300|AT305|AT1S5|AT500|AT570|AT700|AT830)|TOSHIBA.*FOLIO",
         "LGTablet": "\\bL-06C|LG-V900|LG-V500|LG-V909|LG-V500|LG-V510|LG-VK810\\b",
         "FujitsuTablet": "Android.*\\b(F-01D|F-02F|F-05E|F-10D|M532|Q572)\\b",
         "PrestigioTablet": "PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280C3G|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474|PMP5097CPRO|PMP5097|PMP7380D|PMP5297C|PMP5297C_QUAD",
-        "LenovoTablet": "IdeaTab|ThinkPad([ ]+)?Tablet|Lenovo.*(S2109|S2110|S5000|S6000|K3011|A3000|A1000|A2107|A2109|A1107|B6000|B8000|B8080-F)",
+        "LenovoTablet": "Idea(Tab|Pad)( A1|A10| K1|)|ThinkPad([ ]+)?Tablet|Lenovo.*(S2109|S2110|S5000|S6000|K3011|A3000|A3500|A1000|A2107|A2109|A1107|A7600|B6000|B8000|B8080)(-|)(FL|F|HV|H|)",
         "YarvikTablet": "Android.*\\b(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468|TAB07-100|TAB07-101|TAB07-150|TAB07-151|TAB07-152|TAB07-200|TAB07-201-3G|TAB07-210|TAB07-211|TAB07-212|TAB07-214|TAB07-220|TAB07-400|TAB07-485|TAB08-150|TAB08-200|TAB08-201-3G|TAB08-201-30|TAB09-100|TAB09-211|TAB09-410|TAB10-150|TAB10-201|TAB10-211|TAB10-400|TAB10-410|TAB13-201|TAB274EUK|TAB275EUK|TAB374EUK|TAB462EUK|TAB474EUK|TAB9-200)\\b",
         "MedionTablet": "Android.*\\bOYO\\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB",
         "ArnovaTablet": "AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT",
-        "IntensoTablet": "INM8002KP|INM1010FP|INM805ND|Intenso Tab",
+        "IntensoTablet": "INM8002KP|INM1010FP|INM805ND|Intenso Tab|TAB1004",
         "IRUTablet": "M702pro",
         "MegafonTablet": "MegaFon V9|\\bZTE V9\\b|Android.*\\bMT7A\\b",
         "EbodaTablet": "E-Boda (Supreme|Impresspeed|Izzycomm|Essential)",
         "AllViewTablet": "Allview.*(Viva|Alldro|City|Speed|All TV|Frenzy|Quasar|Shine|TX1|AX1|AX2)",
-        "ArchosTablet": "\\b(101G9|80G9|A101IT)\\b|Qilive 97R|ARCHOS 101G10|Archos 101 Neon",
+        "ArchosTablet": "\\b(101G9|80G9|A101IT)\\b|Qilive 97R|Archos5|\\bARCHOS (70|79|80|90|97|101|FAMILYPAD|)(b|)(G10| Cobalt| TITANIUM(HD|)| Xenon| Neon|XSK| 2| XS 2| PLATINUM| CARBON|GAMEPAD)\\b",
         "AinolTablet": "NOVO7|NOVO8|NOVO10|Novo7Aurora|Novo7Basic|NOVO7PALADIN|novo9-Spark",
         "SonyTablet": "Sony.*Tablet|Xperia Tablet|Sony Tablet S|SO-03E|SGPT12|SGPT13|SGPT114|SGPT121|SGPT122|SGPT123|SGPT111|SGPT112|SGPT113|SGPT131|SGPT132|SGPT133|SGPT211|SGPT212|SGPT213|SGP311|SGP312|SGP321|EBRD1101|EBRD1102|EBRD1201|SGP351|SGP341|SGP511|SGP512|SGP521|SGP541|SGP551",
         "CubeTablet": "Android.*(K8GT|U9GT|U10GT|U16GT|U17GT|U18GT|U19GT|U20GT|U23GT|U30GT)|CUBE U8GT",
@@ -74,7 +77,7 @@ define(function () {
         "DanewTablet": "DSlide.*\\b(700|701R|702|703R|704|802|970|971|972|973|974|1010|1012)\\b",
         "TexetTablet": "NaviPad|TB-772A|TM-7045|TM-7055|TM-9750|TM-7016|TM-7024|TM-7026|TM-7041|TM-7043|TM-7047|TM-8041|TM-9741|TM-9747|TM-9748|TM-9751|TM-7022|TM-7021|TM-7020|TM-7011|TM-7010|TM-7023|TM-7025|TM-7037W|TM-7038W|TM-7027W|TM-9720|TM-9725|TM-9737W|TM-1020|TM-9738W|TM-9740|TM-9743W|TB-807A|TB-771A|TB-727A|TB-725A|TB-719A|TB-823A|TB-805A|TB-723A|TB-715A|TB-707A|TB-705A|TB-709A|TB-711A|TB-890HD|TB-880HD|TB-790HD|TB-780HD|TB-770HD|TB-721HD|TB-710HD|TB-434HD|TB-860HD|TB-840HD|TB-760HD|TB-750HD|TB-740HD|TB-730HD|TB-722HD|TB-720HD|TB-700HD|TB-500HD|TB-470HD|TB-431HD|TB-430HD|TB-506|TB-504|TB-446|TB-436|TB-416|TB-146SE|TB-126SE",
         "PlaystationTablet": "Playstation.*(Portable|Vita)",
-        "TrekstorTablet": "ST10416-1|VT10416-1|ST70408-1|ST702xx-1|ST702xx-2|ST80208|ST97216|ST70104-2|VT10416-2|ST10216-2A",
+        "TrekstorTablet": "ST10416-1|VT10416-1|ST70408-1|ST702xx-1|ST702xx-2|ST80208|ST97216|ST70104-2|VT10416-2|ST10216-2A|SurfTab",
         "PyleAudioTablet": "\\b(PTBL10CEU|PTBL10C|PTBL72BC|PTBL72BCEU|PTBL7CEU|PTBL7C|PTBL92BC|PTBL92BCEU|PTBL9CEU|PTBL9CUK|PTBL9C)\\b",
         "AdvanTablet": "Android.* \\b(E3A|T3X|T5C|T5B|T3E|T3C|T3B|T1J|T1F|T2A|T1H|T1i|E1C|T1-E|T5-A|T4|E1-B|T2Ci|T1-B|T1-D|O1-A|E1-A|T1-A|T3A|T4i)\\b ",
         "DanyTechTablet": "Genius Tab G3|Genius Tab S2|Genius Tab Q3|Genius Tab G4|Genius Tab Q4|Genius Tab G-II|Genius TAB GII|Genius TAB GIII|Genius Tab S1",
@@ -99,7 +102,7 @@ define(function () {
         "VoninoTablet": "\\b(Argus[ _]?S|Diamond[ _]?79HD|Emerald[ _]?78E|Luna[ _]?70C|Onyx[ _]?S|Onyx[ _]?Z|Orin[ _]?HD|Orin[ _]?S|Otis[ _]?S|SpeedStar[ _]?S|Magnet[ _]?M9|Primus[ _]?94[ _]?3G|Primus[ _]?94HD|Primus[ _]?QS|Android.*\\bQ8\\b|Sirius[ _]?EVO[ _]?QS|Sirius[ _]?QS|Spirit[ _]?S)\\b",
         "ECSTablet": "V07OT2|TM105A|S10OT1|TR10CS1",
         "StorexTablet": "eZee[_']?(Tab|Go)[0-9]+|TabLC7|Looney Tunes Tab",
-        "VodafoneTablet": "SmartTab([ ]+)?[0-9]+|SmartTabII10",
+        "VodafoneTablet": "SmartTab([ ]+)?[0-9]+|SmartTabII10|SmartTabII7",
         "EssentielBTablet": "Smart[ ']?TAB[ ]+?[0-9]+|Family[ ']?TAB2",
         "RossMoorTablet": "RM-790|RM-997|RMD-878G|RMD-974R|RMT-705A|RMT-701|RME-601|RMT-501|RMT-711",
         "iMobileTablet": "i-mobile i-note",
@@ -113,12 +116,35 @@ define(function () {
         "FX2Tablet": "FX2 PAD7|FX2 PAD10",
         "XoroTablet": "KidsPAD 701|PAD[ ]?712|PAD[ ]?714|PAD[ ]?716|PAD[ ]?717|PAD[ ]?718|PAD[ ]?720|PAD[ ]?721|PAD[ ]?722|PAD[ ]?790|PAD[ ]?792|PAD[ ]?900|PAD[ ]?9715D|PAD[ ]?9716DR|PAD[ ]?9718DR|PAD[ ]?9719QR|PAD[ ]?9720QR|TelePAD1030|Telepad1032|TelePAD730|TelePAD731|TelePAD732|TelePAD735Q|TelePAD830|TelePAD9730|TelePAD795|MegaPAD 1331|MegaPAD 1851|MegaPAD 2151",
         "ViewsonicTablet": "ViewPad 10pi|ViewPad 10e|ViewPad 10s|ViewPad E72|ViewPad7|ViewPad E100|ViewPad 7e|ViewSonic VB733|VB100a",
-        "OdysTablet": "LOOX|XENO10|ODYS Space",
+        "OdysTablet": "LOOX|XENO10|ODYS( Space|-EVO|-Xpress)|Xelio( |)(10|7|)( |)(Pro|EXTREME|PHONETAB|PT2|)|NEO_QUAD10",
         "CaptivaTablet": "CAPTIVA PAD",
         "IconbitTablet": "NetTAB|NT-3702|NT-3702S|NT-3702S|NT-3603P|NT-3603P|NT-0704S|NT-0704S|NT-3805C|NT-3805C|NT-0806C|NT-0806C|NT-0909T|NT-0909T|NT-0907S|NT-0907S|NT-0902S|NT-0902S",
         "Hudl": "Hudl HT7S3",
         "TelstraTablet": "T-Hub2",
-        "GenericTablet": "Android.*\\b97D\\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\\bA7EB\\b|CatNova8|A1_07|CT704|CT1002|\\bM721\\b|rk30sdk|\\bEVOTAB\\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|Tablet-PC-4"
+        "JaytechTablet": "TPC-PA762",
+        "BlaupunktTablet": "Endeavour 800NG|Endeavour 1010",
+        "GenericTablet": "Android.*\\b97D\\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\\bA7EB\\b|CatNova8|A1_07|CT704|CT1002|\\bM721\\b|rk30sdk|\\bEVOTAB\\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Tablet-PC-4|Tagi Tab"
+    },
+    "tvs": {
+        "Apple": "AppleTV",
+        "Google": "GoogleTV|CrKey",
+        "LG": "NetCast|LGSmartTV|HbbTV.+LGE?",
+        "Sony": "SonyDTV|SonyBDP|SonyCEBrowser|HbbTV.+Sony",
+        "Samsung": "SMART-?TV",
+        "Panasonic": "Viera",
+        "Philips": "NETTV\/",
+        "Roku": "Roku\/DVP",
+        "Sharp": "AQUOSBrowser|AQUOS-AS",
+        "Smart": "HbbTV.+smart",
+        "Technicolor": "Technicolor_",
+        "TechniSat": "TechniSat",
+        "Toshiba": "Toshiba_?TP|TSBNetTV\/|HbbTV.+TOSHIBA",
+        "TV2N": "HbbTV.+tv2n",
+        "Motorola": "Motorola KreaTV STB",
+        "Winbox": "Winbox Evo2",
+        "Dune HD": "DuneHD\/",
+        "Bewatec": "MediStream",
+        "Other": "NETRANGEMMH|mbxtWebKit\/|MachBlue|POV_TV|HbbTV|Kylo\/|ADB;|Mstar;OWB|InettvBrowser|Opera[ -]TV|Boxee|Espial\/|ANTGalio\/|Web[0O]S.+Large Screen"
     },
     "oss": {
         "AndroidOS": "Android",
@@ -148,9 +174,13 @@ define(function () {
         "Safari": "Version.*Mobile.*Safari|Safari.*Mobile",
         "Tizen": "Tizen",
         "UCBrowser": "UC.*Browser|UCWEB",
+        "baiduboxapp": "baiduboxapp",
+        "baidubrowser": "baidubrowser",
         "DiigoBrowser": "DiigoBrowser",
         "Puffin": "Puffin",
         "Mercury": "\\bMercury\\b",
+        "ObigoBrowser": "Obigo",
+        "NetFront": "NF-Browser",
         "GenericBrowser": "NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger"
     },
     "props": {
@@ -190,6 +220,8 @@ define(function () {
         "UC Browser": "UC Browser[VER]",
         "MQQBrowser": "MQQBrowser\/[VER]",
         "MicroMessenger": "MicroMessenger\/[VER]",
+        "baiduboxapp": "baiduboxapp\/[VER]",
+        "baidubrowser": "baidubrowser\/[VER]",
         "Safari": [
             "Version\/[VER]",
             "Safari\/[VER]"
@@ -274,6 +306,7 @@ define(function () {
         convertPropsToRegExp(mobileDetectRules.oss);
         convertPropsToRegExp(mobileDetectRules.phones);
         convertPropsToRegExp(mobileDetectRules.tablets);
+        convertPropsToRegExp(mobileDetectRules.tvs);
         convertPropsToRegExp(mobileDetectRules.uas);
         convertPropsToRegExp(mobileDetectRules.utils);
     }());
@@ -376,7 +409,16 @@ define(function () {
         if (cache.mobile !== undefined) {
             return;
         }
-        var phone, tablet, phoneSized;
+        var phone, tablet, tv, phoneSized;
+
+        // first check for stronger tablet rules, then phone (see issue#5)
+        tv = findMatch(mobileDetectRules.tvs, userAgent);
+        if (tv) {
+            cache.tv = tv;
+            // not mobile at all!
+            cache.mobile = cache.tablet = cache.phone = null;
+            return; // unambiguously identified as tv
+        }
 
         // first check for stronger tablet rules, then phone (see issue#5)
         tablet = findMatch(mobileDetectRules.tablets, userAgent);
@@ -600,7 +642,8 @@ define(function () {
          * <br>
          * The returned tablet (family or producer) is one of following keys:<br>
          * <br><tt>iPhone, BlackBerry, HTC, Nexus, Dell, Motorola, Samsung, LG, Sony, Asus,
-         * Micromax, Palm, Vertu, Pantech, Fly, iMobile, SimValley, GenericPhone</tt><br>
+         * Micromax, Palm, Vertu, Pantech, Fly, iMobile, SimValley, Alcatel, Amoi, INQ,
+         * GenericPhone</tt><br>
          * <br>
          * If the device is not detected by the regular expressions from Mobile-Detect, a test is made against
          * the patterns of <a href="http://detectmobilebrowsers.com/">detectmobilebrowsers.com</a>. If this test
@@ -639,7 +682,8 @@ define(function () {
          * ECSTablet, StorexTablet, VodafoneTablet, EssentielBTablet, RossMoorTablet,
          * iMobileTablet, TolinoTablet, AudioSonicTablet, AMPETablet, SkkTablet,
          * TecnoTablet, JXDTablet, iJoyTablet, FX2Tablet, XoroTablet, ViewsonicTablet,
-         * OdysTablet, CaptivaTablet, IconbitTablet, Hudl, TelstraTablet, GenericTablet</tt><br>
+         * OdysTablet, CaptivaTablet, IconbitTablet, Hudl, TelstraTablet, JaytechTablet,
+         * BlaupunktTablet, GenericTablet</tt><br>
          * <br>
          * If the device is not detected by the regular expressions from Mobile-Detect, a test is made against
          * the patterns of <a href="http://detectmobilebrowsers.com/">detectmobilebrowsers.com</a>. If this test
@@ -659,11 +703,32 @@ define(function () {
         },
 
         /**
+         * Returns the detected tv type/family string or <tt>null</tt>.
+         * <br>
+         * The returned tv (family or producer) is one of following keys:<br>
+         * <br><tt></tt><br>
+         * <br>
+         * If the device is not detected by the regular expressions from Mobile-Detect, a test is made against
+         * the patterns of <a href="http://detectmobilebrowsers.com/">detectmobilebrowsers.com</a>. If this test
+         * is positive, a value of <code>UnknownTablet</code> or <code>UnknownMobile</code> is returned.<br>
+         * <br>
+         * In most cases you will use the return value just as a boolean.
+         *
+         * @returns {String} the key of the tv family or producer, e.g. "AppleTV"
+         * @function MobileDetect#tv
+         */
+        tv: function () {
+            prepareDetectionCache(this._cache, this.ua, this.maxPhoneWidth);
+            return this._cache.tv;
+        },
+
+        /**
          * Returns the detected user-agent string or <tt>null</tt>.
          * <br>
          * The returned user-agent is one of following keys:<br>
          * <br><tt>Chrome, Dolfin, Opera, Skyfire, IE, Firefox, Bolt, TeaShark, Blazer, Safari,
-         * Tizen, UCBrowser, DiigoBrowser, Puffin, Mercury, GenericBrowser</tt><br>
+         * Tizen, UCBrowser, baiduboxapp, baidubrowser, DiigoBrowser, Puffin, Mercury,
+         * ObigoBrowser, NetFront, GenericBrowser</tt><br>
          *
          * @returns {String} the key for the detected user-agent or <tt>null</tt>
          * @function MobileDetect#userAgent
@@ -701,9 +766,10 @@ define(function () {
          *        You can use one of following keys:<br>
          * <br><tt>Mobile, Build, Version, VendorID, iPad, iPhone, iPod, Kindle, Chrome, Coast,
          * Dolfin, Firefox, Fennec, IE, NetFront, NokiaBrowser, Opera, Opera Mini, Opera
-         * Mobi, UC Browser, MQQBrowser, MicroMessenger, Safari, Skyfire, Tizen, Webkit,
-         * Gecko, Trident, Presto, iOS, Android, BlackBerry, BREW, Java, Windows Phone OS,
-         * Windows Phone, Windows CE, Windows NT, Symbian, webOS</tt><br>
+         * Mobi, UC Browser, MQQBrowser, MicroMessenger, baiduboxapp, baidubrowser,
+         * Safari, Skyfire, Tizen, Webkit, Gecko, Trident, Presto, iOS, Android,
+         * BlackBerry, BREW, Java, Windows Phone OS, Windows Phone, Windows CE, Windows
+         * NT, Symbian, webOS</tt><br>
          *
          * @returns {Number} the version as float or <tt>NaN</tt> if User-Agent doesn't contain this version.
          *          Be careful when comparing this value with '==' operator!
@@ -721,9 +787,10 @@ define(function () {
          *        You can use one of following keys:<br>
          * <br><tt>Mobile, Build, Version, VendorID, iPad, iPhone, iPod, Kindle, Chrome, Coast,
          * Dolfin, Firefox, Fennec, IE, NetFront, NokiaBrowser, Opera, Opera Mini, Opera
-         * Mobi, UC Browser, MQQBrowser, MicroMessenger, Safari, Skyfire, Tizen, Webkit,
-         * Gecko, Trident, Presto, iOS, Android, BlackBerry, BREW, Java, Windows Phone OS,
-         * Windows Phone, Windows CE, Windows NT, Symbian, webOS</tt><br>
+         * Mobi, UC Browser, MQQBrowser, MicroMessenger, baiduboxapp, baidubrowser,
+         * Safari, Skyfire, Tizen, Webkit, Gecko, Trident, Presto, iOS, Android,
+         * BlackBerry, BREW, Java, Windows Phone OS, Windows Phone, Windows CE, Windows
+         * NT, Symbian, webOS</tt><br>
          *
          * @returns {String} the "raw" version as String or <tt>null</tt> if User-Agent doesn't contain this version.
          *
@@ -752,6 +819,7 @@ define(function () {
                    equalIC(key, this.os()) ||
                    equalIC(key, this.phone()) ||
                    equalIC(key, this.tablet()) ||
+                   equalIC(key, this.tv()) ||
                    equalIC(key, findMatch(mobileDetectRules.utils, this.ua));
         },
 

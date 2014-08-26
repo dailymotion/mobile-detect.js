@@ -8,6 +8,7 @@ class Mobile_Detect_Exporter extends Mobile_Detect {
         $detect_data = array(
             'phones' => parent::$phoneDevices,
             'tablets' => parent::$tabletDevices,
+            'tvs' => parent::$tvDevices,
             'oss' => parent::$operatingSystems,
             'uas' => parent::$browsers,
             'props' => parent::$properties,

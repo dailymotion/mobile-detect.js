@@ -61,7 +61,7 @@ function generateTestData() {
     uaList.user_agents.forEach(function (item) {
         var vendor = item.vendor;
 
-        if ('mobile' in item) {
+        if ('mobile' in item || 'tv' in item) {
             delete item.vendor;
             item.nr = ++number;
             mobilePerVendor[vendor] = mobilePerVendor[vendor] || [];

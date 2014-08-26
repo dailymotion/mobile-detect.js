@@ -31,7 +31,8 @@ function createMatcher(type) {
 matchers = {
     toBeMobile: createMatcher('mobile'),
     toBePhone: createMatcher('phone'),
-    toBeTablet: createMatcher('tablet')
+    toBeTablet: createMatcher('tablet'),
+    toBeTv: createMatcher('tv')
 };
 
 beforeEach(function () {
@@ -54,6 +55,7 @@ describe("MobileDetect (1 example)", function() {
         expect(aut.mobile()).toEqual('Sony');
         expect(aut.phone()).toEqual('Sony');
         expect(aut.tablet()).toBeNull();
+        expect(aut.tv()).toBeNull();
     });
 
     it("should rank mobile grade", function () {
@@ -149,6 +151,9 @@ describe("Feeding w/ ualist", function () {
         }
         if ('tablet' in uaProps) {
             expect(aut).toBeTablet(uaProps.tablet);
+        }
+        if ('tv' in uaProps) {
+            expect(aut).toBeTv(uaProps.tv);
         }
         if (uaProps.mobile === true && uaProps.tablet !== undefined) {
             expect(aut).toBePhone(!uaProps.tablet);

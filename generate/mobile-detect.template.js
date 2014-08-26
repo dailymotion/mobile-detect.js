@@ -44,6 +44,7 @@ define(function () {
         convertPropsToRegExp(mobileDetectRules.oss);
         convertPropsToRegExp(mobileDetectRules.phones);
         convertPropsToRegExp(mobileDetectRules.tablets);
+        convertPropsToRegExp(mobileDetectRules.tvs);
         convertPropsToRegExp(mobileDetectRules.uas);
         convertPropsToRegExp(mobileDetectRules.utils);
     }());
@@ -146,7 +147,16 @@ define(function () {
         if (cache.mobile !== undefined) {
             return;
         }
-        var phone, tablet, phoneSized;
+        var phone, tablet, tv, phoneSized;
+
+        // first check for stronger tablet rules, then phone (see issue#5)
+        tv = findMatch(mobileDetectRules.tvs, userAgent);
+        if (tv) {
+            cache.tv = tv;
+            // not mobile at all!
+            cache.mobile = cache.tablet = cache.phone = null;
+            return; // unambiguously identified as tv
+        }
 
         // first check for stronger tablet rules, then phone (see issue#5)
         tablet = findMatch(mobileDetectRules.tablets, userAgent);
@@ -412,6 +422,26 @@ define(function () {
         },
 
         /**
+         * Returns the detected tv type/family string or <tt>null</tt>.
+         * <br>
+         * The returned tv (family or producer) is one of following keys:<br>
+         * <br><tt>{{{keys.tvs}}}</tt><br>
+         * <br>
+         * If the device is not detected by the regular expressions from Mobile-Detect, a test is made against
+         * the patterns of <a href="http://detectmobilebrowsers.com/">detectmobilebrowsers.com</a>. If this test
+         * is positive, a value of <code>UnknownTablet</code> or <code>UnknownMobile</code> is returned.<br>
+         * <br>
+         * In most cases you will use the return value just as a boolean.
+         *
+         * @returns {String} the key of the tv family or producer, e.g. "AppleTV"
+         * @function MobileDetect#tv
+         */
+        tv: function () {
+            prepareDetectionCache(this._cache, this.ua, this.maxPhoneWidth);
+            return this._cache.tv;
+        },
+
+        /**
          * Returns the detected user-agent string or <tt>null</tt>.
          * <br>
          * The returned user-agent is one of following keys:<br>
@@ -495,6 +525,7 @@ define(function () {
                    equalIC(key, this.os()) ||
                    equalIC(key, this.phone()) ||
                    equalIC(key, this.tablet()) ||
+                   equalIC(key, this.tv()) ||
                    equalIC(key, findMatch(mobileDetectRules.utils, this.ua));
         },
 
